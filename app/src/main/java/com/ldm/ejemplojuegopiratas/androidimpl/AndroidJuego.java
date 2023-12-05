@@ -3,7 +3,6 @@ package com.ldm.ejemplojuegopiratas.androidimpl;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -57,7 +56,8 @@ public abstract class AndroidJuego extends Activity implements Juego {
         audio = new AndroidAudio(this);
         input = new AndroidInput(this, renderView, scaleX, scaleY);
         pantalla = getStartScreen();
-        musica = audio.nuevaMusica("musica.mp3");
+        musica= audio.nuevaMusica("musica.mp3");
+        //musica= new AndroidMusica(R.raw.musica);
         musica.play();
         setContentView(renderView);
 

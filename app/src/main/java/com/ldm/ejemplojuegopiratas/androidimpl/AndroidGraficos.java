@@ -12,6 +12,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Rect;
+import android.util.Log;
 
 import com.ldm.ejemplojuegopiratas.Graficos;
 import com.ldm.ejemplojuegopiratas.Pixmap;
@@ -113,13 +114,20 @@ public class AndroidGraficos implements Graficos {
         dstRect.right = x + srcWidth - 1;
         dstRect.bottom = y + srcHeight - 1;
 
+        //canvas.drawRect(x, y, x + srcWidth - 1, y + srcHeight - 1, paint);
         canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, srcRect, dstRect,
                 null);
     }
 
     @Override
     public void drawPixmap(Pixmap pixmap, int x, int y) {
-        canvas.drawBitmap(((AndroidPixmap)pixmap).bitmap, x, y, null);
+        if (pixmap != null && pixmap instanceof AndroidPixmap && ((AndroidPixmap) pixmap).bitmap != null) {
+            canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, x, y, null);
+        } else {
+            // Handle the case where the Pixmap or its bitmap is null
+            // For example, you could log a message or take appropriate action
+            Log.e("drawPixmap", "Pixmap or its bitmap is null");
+        }
     }
 
     @Override

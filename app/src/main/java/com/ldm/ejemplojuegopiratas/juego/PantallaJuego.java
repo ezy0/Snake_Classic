@@ -162,6 +162,8 @@ public class PantallaJuego extends Pantalla {
             //g.drawPixmap(Assets.cuerpoDerecha, x, y);
             switch (jollyroger.direccion) {
                 case JollyRoger.ARRIBA:
+                    //g.drawPixmap(Assets.cuerpoAbajo,x,y);
+                    //break;
                 case JollyRoger.ABAJO:
                     g.drawPixmap(Assets.cuerpoAbajo, x, y);
                     break;
