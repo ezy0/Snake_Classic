@@ -157,10 +157,17 @@ public class PantallaJuego extends Pantalla {
         int len = jollyroger.partes.size();
         for(int i = 1; i < len; i++) {
             Cuerpo part = jollyroger.partes.get(i);
+            Cuerpo antes=jollyroger.partes.get(i-1);
             x = part.x * 32;
             y = part.y * 32;
-            //g.drawPixmap(Assets.cuerpoDerecha, x, y);
-            switch (jollyroger.direccion) {
+            if(antes.direccion==JollyRoger.ARRIBA||antes.direccion==JollyRoger.ABAJO)
+                g.drawPixmap(Assets.cuerpoAbajo,x,y);
+            else if (antes.direccion==JollyRoger.DERECHA)
+                g.drawPixmap(Assets.cuerpoDerecha,x,y);
+            else
+                g.drawPixmap(Assets.cuerpoIzquierda,x,y);
+
+            /*switch (jollyroger.direccion) {
                 case JollyRoger.ARRIBA:
                     //g.drawPixmap(Assets.cuerpoAbajo,x,y);
                     //break;
@@ -173,7 +180,7 @@ public class PantallaJuego extends Pantalla {
                 case JollyRoger.DERECHA:
                     g.drawPixmap(Assets.cuerpoDerecha, x, y);
                     break;
-            }
+            }*/
         }
 
         Pixmap headPixmap = null;
@@ -188,6 +195,8 @@ public class PantallaJuego extends Pantalla {
         x = head.x * 32 + 16;
         y = head.y * 32 + 16;
         g.drawPixmap(headPixmap, x - headPixmap.getWidth() / 2, y - headPixmap.getHeight() / 2);
+
+
     }
 
     private void drawReadyUI() {

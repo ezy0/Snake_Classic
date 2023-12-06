@@ -121,13 +121,8 @@ public class AndroidGraficos implements Graficos {
 
     @Override
     public void drawPixmap(Pixmap pixmap, int x, int y) {
-        if (pixmap != null && pixmap instanceof AndroidPixmap && ((AndroidPixmap) pixmap).bitmap != null) {
-            canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, x, y, null);
-        } else {
-            // Handle the case where the Pixmap or its bitmap is null
-            // For example, you could log a message or take appropriate action
-            Log.e("drawPixmap", "Pixmap or its bitmap is null");
-        }
+        canvas.drawBitmap(((AndroidPixmap) pixmap).bitmap, x, y, null);
+
     }
 
     @Override

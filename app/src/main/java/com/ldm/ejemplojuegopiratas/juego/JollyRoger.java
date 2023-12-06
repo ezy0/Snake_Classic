@@ -8,21 +8,15 @@ public class JollyRoger {
     public static final int IZQUIERDA= 1;
     public static final int ABAJO = 2;
     public static final int DERECHA = 3;
-
-    private int lastHeadX;
-    private int lastHeadY;
-
     public List<Cuerpo> partes = new ArrayList<Cuerpo>();
     public int direccion;
 
     public JollyRoger() {
         //direccion = ARRIBA;
-        partes.add(new Cuerpo(5, 6));
-        partes.add(new Cuerpo(5, 7));
-        partes.add(new Cuerpo(5, 8));
+        partes.add(new Cuerpo(5, 6,0));
+        partes.add(new Cuerpo(5, 7,0));
+        partes.add(new Cuerpo(5, 8,0));
         this.direccion = JollyRoger.ARRIBA;
-        lastHeadX=0;
-        lastHeadY=0;
     }
 
     public void girarIzquierda() {
@@ -39,13 +33,13 @@ public class JollyRoger {
 
     public void abordaje() {//añadir un nuevo cuerpo al serpiente
         Cuerpo end = partes.get(partes.size()-1);
-        partes.add(new Cuerpo(end.x, end.y));
+        partes.add(new Cuerpo(end.x, end.y,end.getDireccion()));
     }
 
     public void avance() {
         Cuerpo barco = partes.get(0);
-        lastHeadX = barco.x;
-        lastHeadY = barco.y;
+        //lastHeadX = barco.x;
+        //lastHeadY = barco.y;
 
         int len = partes.size() - 1;
         for(int i = len; i > 0; i--) {
@@ -72,10 +66,10 @@ public class JollyRoger {
             barco.y = 12;
         if(barco.y > 12)
             barco.y = 0;
-        updateBodyDirection();
+        //updateBodyDirection();
     }
 
-    private void updateBodyDirection() {
+    /*private void updateBodyDirection() {
         int len = partes.size() - 1;
         for (int i = len; i > 0; i--) {
             Cuerpo parte = partes.get(i);
@@ -85,7 +79,7 @@ public class JollyRoger {
                 parte.direccion = direccion;
             }
         }
-    }
+    }*/
     public boolean comprobarChoque() {
         int len = partes.size();
         Cuerpo barco = partes.get(0);
