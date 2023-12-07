@@ -1,5 +1,7 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
+import android.graphics.Bitmap;
+
 import java.util.List;
 
 import com.ldm.ejemplojuegopiratas.Juego;
@@ -193,10 +195,9 @@ public class PantallaJuego extends Pantalla {
     private void drawReadyUI() {
         Graficos g = juego.getGraphics();
 
-        g.drawPixmap(Assets.preparado, 47, 100);
+        g.drawPixmap(Assets.preparado, 10, 50);
         //g.drawLine(0, 416, 480, 416, Color.BLACK);
     }
-
     private void drawRunningUI() {
         Graficos g = juego.getGraphics();
 

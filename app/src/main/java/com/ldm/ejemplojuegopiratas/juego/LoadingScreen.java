@@ -21,7 +21,7 @@ public class LoadingScreen extends Pantalla{
         Assets.ayuda2 = g.newPixmap("ayuda2.png", PixmapFormat.ARGB4444);
         Assets.ayuda3 = g.newPixmap("ayuda3.png", PixmapFormat.ARGB4444);
         Assets.numeros = g.newPixmap("numeros.png", PixmapFormat.ARGB4444);
-        Assets.preparado = g.newPixmap("preparado.png", PixmapFormat.ARGB4444);
+        Assets.preparado = g.newPixmap("ready.png", PixmapFormat.ARGB4444);
         Assets.menupausa = g.newPixmap("menupausa.png", PixmapFormat.ARGB4444);
         Assets.finjuego = g.newPixmap("finjuego.png", PixmapFormat.ARGB4444);
         Assets.cabezaArriba = g.newPixmap("cabezaArriba.png", PixmapFormat.ARGB4444);
