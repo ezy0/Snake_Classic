@@ -20,7 +20,8 @@ public class MainMenuScreen extends Pantalla {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-                if(inBounds(event, 0, g.getHeight() - 64, 64, 64)) {
+                //if(inBounds(event, 0, g.getHeight() - 64, 64, 64)) {
+                if(inBounds(event, 20, 756, 90, 90)) {
                     Configuraciones.sonidoHabilitado = !Configuraciones.sonidoHabilitado;
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
@@ -64,10 +65,12 @@ public class MainMenuScreen extends Pantalla {
         g.drawPixmap(Assets.fondo, 0, 0);
         g.drawPixmap(Assets.logo, (g.getWidth()/2)-87, 20);
         g.drawPixmap(Assets.menuprincipal, 64, 220);
-        if(Configuraciones.sonidoHabilitado)
-            g.drawPixmap(Assets.botones, 0, 416, 0, 0, 64, 64);
+        if(Configuraciones.sonidoHabilitado)//primero dos valores es para ver donde colocar y los ultimos 4 son para ver donde cortar
+            g.drawPixmap(Assets.sonido, 20,756,10,102,70,161);//colocar el boton de sonido
+            //g.drawPixmap(Assets.botones, 0, 416, 0, 0, 64, 64);
         else
-            g.drawPixmap(Assets.botones, 0, 416, 64, 0, 64, 64);
+            g.drawPixmap(Assets.silenciar, 20,756,15,5,75,65);
+            //g.drawPixmap(Assets.botones, 0, 416, 64, 0, 64, 64);
     }
 
     @Override

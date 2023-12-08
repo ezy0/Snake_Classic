@@ -22,11 +22,14 @@ public class Assets {
     public static Pixmap cuerpoDerecha;
     public static Pixmap cuerpoIzquierda;
     public static Pixmap cuerpoAbajo;
-
     public static Pixmap manzana;
-
     public static Sonido pulsar;
     public static Sonido ataque;
     public static Sonido derrota;
+    public static Pixmap cruz;
+    public static Pixmap silenciar;
+    public static Pixmap sonido;
+    public static Pixmap control;
+    public static Pixmap pausa;
 
 }

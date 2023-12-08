@@ -36,6 +36,12 @@ public class LoadingScreen extends Pantalla{
         Assets.ataque = juego.getAudio().nuevoSonido("ataque.ogg");
         Assets.derrota = juego.getAudio().nuevoSonido("derrota.ogg");
 
+        Assets.cruz = g.newPixmap("cruz.png",PixmapFormat.ARGB4444);
+        Assets.silenciar=g.newPixmap("silenciar.png", PixmapFormat.ARGB4444);
+        Assets.control=g.newPixmap("control.png", PixmapFormat.ARGB4444);
+        Assets.sonido=g.newPixmap("sonido.png",PixmapFormat.ARGB4444);
+        Assets.pausa=g.newPixmap("pausa.png",PixmapFormat.ARGB4444);
+
 
         Configuraciones.cargar(juego.getFileIO());
         juego.setScreen(new MainMenuScreen(juego));
