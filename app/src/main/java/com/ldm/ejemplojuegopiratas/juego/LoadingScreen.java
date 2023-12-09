@@ -41,7 +41,8 @@ public class LoadingScreen extends Pantalla{
         Assets.control=g.newPixmap("control.png", PixmapFormat.ARGB4444);
         Assets.sonido=g.newPixmap("sonido.png",PixmapFormat.ARGB4444);
         Assets.pausa=g.newPixmap("pausa.png",PixmapFormat.ARGB4444);
-
+        Assets.flecha=g.newPixmap("flecha.png",PixmapFormat.ARGB4444);
+        Assets.puntuaciones=g.newPixmap("puntuaciones.png",PixmapFormat.ARGB4444);
 
         Configuraciones.cargar(juego.getFileIO());
         juego.setScreen(new MainMenuScreen(juego));

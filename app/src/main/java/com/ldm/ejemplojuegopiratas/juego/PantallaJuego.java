@@ -90,14 +90,14 @@ public class PantallaJuego extends Pantalla {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-                if(event.x > 80 && event.x <= 240) {
-                    if(event.y > 100 && event.y <= 148) {
+                if(event.x > 80 && event.x <= 400) {
+                    if(event.y > 438 && event.y <= 483) {
                         if(Configuraciones.sonidoHabilitado)
                             Assets.pulsar.play(1);
                         estado = EstadoJuego.Ejecutandose;
                         return;
                     }
-                    if(event.y > 148 && event.y < 196) {
+                    if(event.y >= 500 && event.y <= 560) {
                         if(Configuraciones.sonidoHabilitado)
                             Assets.pulsar.play(1);
                         juego.setScreen(new MainMenuScreen(juego));
@@ -113,8 +113,8 @@ public class PantallaJuego extends Pantalla {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-                if(event.x >= 128 && event.x <= 192 &&
-                        event.y >= 200 && event.y <= 264) {
+                if(event.x >= 220 && event.x <= 300 &&
+                        event.y >= 470 && event.y <= 551) {
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
                     juego.setScreen(new MainMenuScreen(juego));
@@ -195,13 +195,13 @@ public class PantallaJuego extends Pantalla {
     private void drawReadyUI() {
         Graficos g = juego.getGraphics();
 
-        g.drawPixmap(Assets.preparado, 10, 50);
+        g.drawPixmap(Assets.preparado, 90, 450);
         //g.drawLine(0, 416, 480, 416, Color.BLACK);
     }
     private void drawRunningUI() {
         Graficos g = juego.getGraphics();
 
-        g.drawPixmap(Assets.botones, 0, 0, 64, 128, 64, 64);//este es de parar
+        g.drawPixmap(Assets.pausa, 0, 0, 0, 0, 73, 74);//este es de parar
         //g.drawLine(0, 416, 480, 416, Color.BLACK);
         g.drawPixmap(Assets.botones, 0, 416, 64, 64, 64, 64);
         g.drawPixmap(Assets.botones, 256, 416, 0, 64, 64, 64);
@@ -210,15 +210,15 @@ public class PantallaJuego extends Pantalla {
     private void drawPausedUI() {
         Graficos g = juego.getGraphics();
 
-        g.drawPixmap(Assets.menupausa, 80, 100);
+        g.drawPixmap(Assets.menupausa, 80, 400);
         //g.drawLine(0, 416, 480, 416, Color.BLACK);
     }
 
     private void drawGameOverUI() {
         Graficos g = juego.getGraphics();
 
-        g.drawPixmap(Assets.finjuego, 62, 100);
-        g.drawPixmap(Assets.botones, 128, 200, 0, 128, 64, 64);
+        g.drawPixmap(Assets.finjuego, 90, 425);
+        g.drawPixmap(Assets.cruz, 200, 480, 0, 0, 80, 80);//para cerrar
         //g.drawLine(0, 416, 480, 416, Color.BLACK);
     }
 

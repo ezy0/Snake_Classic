@@ -31,5 +31,7 @@ public class Assets {
     public static Pixmap sonido;
     public static Pixmap control;
     public static Pixmap pausa;
+    public static Pixmap puntuaciones;
+    public static Pixmap flecha;
 
 }
