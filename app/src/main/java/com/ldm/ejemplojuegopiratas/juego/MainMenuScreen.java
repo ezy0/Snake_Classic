@@ -26,7 +26,7 @@ public class MainMenuScreen extends Pantalla {
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
                 }
-                if(inBounds(event, 64, 220, 192, 42) ) {
+                if(inBounds(event, 64, 350, 192, 42) ) {
                     juego.setScreen(new PantallaJuego(juego));
                     if(Configuraciones.sonidoHabilitado)
                     {Assets.pulsar.play(1);
@@ -34,13 +34,13 @@ public class MainMenuScreen extends Pantalla {
 
                     return;
                 }
-                if(inBounds(event, 64, 220 + 42, 192, 42) ) {
+                if(inBounds(event, 64, 350 + 42, 192, 42) ) {
                     juego.setScreen(new PantallaMaximasPuntuaciones(juego));
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
                     return;
                 }
-                if(inBounds(event, 64, 220 + 84, 192, 42) ) {
+                if(inBounds(event, 64, 350 + 84, 192, 42) ) {
                     juego.setScreen(new PantallaAyuda(juego));
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
@@ -63,8 +63,8 @@ public class MainMenuScreen extends Pantalla {
         Graficos g = juego.getGraphics();
 
         g.drawPixmap(Assets.fondo, 0, 0);
-        g.drawPixmap(Assets.logo, (g.getWidth()/2)-87, 20);
-        g.drawPixmap(Assets.menuprincipal, 64, 220);
+        g.drawPixmap(Assets.logo, (g.getWidth()/2)-87, 100);
+        g.drawPixmap(Assets.menuprincipal, 64, 350);
         if(Configuraciones.sonidoHabilitado)//primero dos valores es para ver donde colocar y los ultimos 4 son para ver donde cortar
             g.drawPixmap(Assets.sonido, 20,747,0,0,80,80);//colocar el boton de sonido
             //g.drawPixmap(Assets.botones, 0, 416, 0, 0, 64, 64);

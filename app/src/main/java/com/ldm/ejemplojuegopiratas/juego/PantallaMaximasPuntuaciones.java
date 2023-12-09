@@ -41,18 +41,18 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
         Graficos g = juego.getGraphics();
 
         g.drawPixmap(Assets.fondo, 0, 0);
-        g.drawPixmap(Assets.puntuaciones, 50, 0, 0, 0, 400, 71);
+        g.drawPixmap(Assets.puntuaciones, 40, 0, 0, 0, 400, 71);
 
         int y = 100;
         for (int i = 0; i < 5; i++) {
-            dibujarTexto(g, lineas[i], 20, y);
+            dibujarTexto(g, lineas[i], 30, y);
             y += 50;
         }
 
         g.drawPixmap(Assets.cruz, 20, 747, 0, 0, 80, 80);
     }
 
-    public void dibujarTexto(Graficos g, String linea, int x, int y) {
+    public void dibujarTexto(Graficos g, String linea, int x, int y) { // Empieza dibujando cada línea.
         int len = linea.length();
         for (int i = 0; i < len; i++) {
             char character = linea.charAt(i);
@@ -69,10 +69,9 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
                 srcWidth = 10;
             } else {
                 srcX = (character - '0') * 20;
-                srcWidth = 40;
+                srcWidth = 20;
             }
-
-            g.drawPixmap(Assets.numeros, x, y, srcX, 0, srcWidth, 52);
+            g.drawPixmap(Assets.numeros, x, y, srcX, 0, srcWidth, 32);
             x += srcWidth;
         }
     }
