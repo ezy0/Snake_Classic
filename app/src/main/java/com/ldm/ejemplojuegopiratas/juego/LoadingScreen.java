@@ -43,6 +43,7 @@ public class LoadingScreen extends Pantalla{
 
         Configuraciones.cargar(juego.getFileIO());
         juego.setScreen(new MainMenuScreen(juego));
+
     }
 
     @Override

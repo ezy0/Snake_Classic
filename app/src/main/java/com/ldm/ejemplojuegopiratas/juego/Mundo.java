@@ -1,5 +1,11 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.ldm.ejemplojuegopiratas.androidimpl.AdminSQL;
+
 import java.util.Random;
 
 public class Mundo {
@@ -8,6 +14,9 @@ public class Mundo {
     static final int INCREMENTO_PUNTUACION = 10;
     static final float TICK_INICIAL = 0.25f;
     static final float TICK_DECREMENTO = 0.05f;
+
+    public AdminSQL adminSQL;
+    public SQLiteDatabase sql;
 
     public Snake snake;
     public Manzana manzana;
@@ -22,6 +31,11 @@ public class Mundo {
     public Mundo() {
         snake = new Snake();
         colocarManzana();
+    }
+
+    public void createSql(){
+        adminSQL= new AdminSQL(null,"puntuaciones",null,1);
+        sql = adminSQL.getWritableDatabase();
     }
 
     private void colocarManzana() {
@@ -72,6 +86,7 @@ public class Mundo {
             snake.avance();
             if (snake.comprobarChoque()) {
                 finalJuego = true;
+                savePoints(puntuacion);
                 return;
             }
 
@@ -91,6 +106,14 @@ public class Mundo {
                 }
             }
         }
+    }
+    public void savePoints(int p){
+        ContentValues values = new ContentValues();
+        values.put("puntos",p);
+        Cursor cursor = sql.rawQuery("SELECT * FROM puntuaciones", null);
+        values.put("codigo", cursor.getCount());
+        sql.insert("puntuaciones",null,values);
+        cursor.close();
     }
 }
 
