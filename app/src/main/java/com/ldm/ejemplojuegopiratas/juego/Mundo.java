@@ -6,7 +6,7 @@ public class Mundo {
     static final int MUNDO_ANCHO = 14; //10 default
     static final int MUNDO_ALTO = 27; // 13 default
     static final int INCREMENTO_PUNTUACION = 10;
-    static final float TICK_INICIAL = 0.5f;
+    static final float TICK_INICIAL = 0.25f;
     static final float TICK_DECREMENTO = 0.05f;
 
     public Snake snake;

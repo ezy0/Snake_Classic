@@ -44,7 +44,6 @@ public class PantallaJuego extends Pantalla {
             updatePaused(touchEvents);
         if(estado == EstadoJuego.FinJuego)
             updateGameOver(touchEvents);
-
     }
 
     private void updateReady(List<TouchEvent> touchEvents) {
@@ -64,16 +63,9 @@ public class PantallaJuego extends Pantalla {
                     return;
                 }
             }
-            /*if(event.type == TouchEvent.TOUCH_DOWN) {
-                if(event.x < 64 && event.y > 416) {
-                    mundo.snake.girarIzquierda();
-                }
-                if(event.x > 256 && event.y > 416) {
-                    mundo.snake.girarDerecha();
-                }
-            }*/
+
             if(event.type == TouchEvent.TOUCH_DOWN) {
-                if (event.y >= 450 && event.y < 650) {
+                if (event.y >= 450 && event.y < 670) {
                     if (mundo.snake.direccion == Snake.ARRIBA || mundo.snake.direccion == Snake.ABAJO) {
                         if (event.x < 240) {
                             mundo.snake.izquierda();
@@ -83,7 +75,7 @@ public class PantallaJuego extends Pantalla {
                     } else if (mundo.snake.direccion == Snake.IZQUIERDA || mundo.snake.direccion == Snake.DERECHA) {
                         mundo.snake.arriba();
                     }
-                } else if (event.y >= 650){
+                } else if (event.y >= 670){
                     if (mundo.snake.direccion == Snake.IZQUIERDA || mundo.snake.direccion == Snake.DERECHA) {
                         mundo.snake.abajo();
                     } else if (mundo.snake.direccion == Snake.ARRIBA || mundo.snake.direccion == Snake.ABAJO) {
