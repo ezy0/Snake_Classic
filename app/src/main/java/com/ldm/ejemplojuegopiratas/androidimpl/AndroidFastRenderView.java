@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import com.ldm.ejemplojuegopiratas.juego.EfectoRetro;
+//import com.ldm.ejemplojuegopiratas.juego.EfectoRetro;
 
 public class AndroidFastRenderView extends SurfaceView implements Runnable {
     AndroidJuego juego;
