@@ -1,7 +1,7 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import android.content.Context;
+import android.content.res.AssetManager;
 
 import java.util.List;
 
@@ -28,7 +28,8 @@ public class PantallaJuego extends Pantalla {
 
     public PantallaJuego(Juego juego) {
         super(juego);
-        mundo = new Mundo();
+        mundo = new Mundo();//este metodo la llamada hay que verlo mejor
+
     }
 
     @Override

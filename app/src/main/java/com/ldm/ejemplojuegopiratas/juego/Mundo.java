@@ -1,10 +1,15 @@
 package com.ldm.ejemplojuegopiratas.juego;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.ldm.ejemplojuegopiratas.androidimpl.AdminSQL;
+import com.ldm.ejemplojuegopiratas.androidimpl.AndroidFileIO;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import java.util.Random;
 
@@ -14,29 +19,23 @@ public class Mundo {
     static final int INCREMENTO_PUNTUACION = 10;
     static final float TICK_INICIAL = 0.25f;
     static final float TICK_DECREMENTO = 0.05f;
-
-    public AdminSQL adminSQL;
-    public SQLiteDatabase sql;
+    private AndroidFileIO fileIO;
 
     public Snake snake;
     public Manzana manzana;
     public boolean finalJuego = false;
     public int puntuacion = 0;
-
     boolean campos[][] = new boolean[MUNDO_ANCHO][MUNDO_ALTO];
     Random random = new Random();
     float tiempoTick = 0;
     static float tick = TICK_INICIAL;
 
-    public Mundo() {
+    public Mundo(AndroidFileIO fileIO) {
         snake = new Snake();
         colocarManzana();
+        this.fileIO=fileIO;//tendria que ser algo asi, pero  no esta saliendo bien
     }
 
-    public void createSql(){
-        adminSQL= new AdminSQL(null,"puntuaciones",null,1);
-        sql = adminSQL.getWritableDatabase();
-    }
 
     private void colocarManzana() {
         for (int x = 0; x < MUNDO_ANCHO; x++) {
@@ -67,7 +66,7 @@ public class Mundo {
                 manzanaX = 12;
             if (manzanaX <= 2)
                 manzanaX = 3;
-            if (manzanaY >= 25)
+            if (manzanaY >= 24)
                 manzanaY = 24;
             if (manzanaY <= 2)
                 manzanaY = 1;
@@ -107,13 +106,15 @@ public class Mundo {
             }
         }
     }
-    public void savePoints(int p){
-        ContentValues values = new ContentValues();
-        values.put("puntos",p);
-        Cursor cursor = sql.rawQuery("SELECT * FROM puntuaciones", null);
-        values.put("codigo", cursor.getCount());
-        sql.insert("puntuaciones",null,values);
-        cursor.close();
+    public void savePoints(int p) {
+        ArrayList<String> puntuaciones = new ArrayList<>();
+        puntuaciones.add(String.valueOf(p));
+
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(fileIO.escribirArchivo("puntuaciones.txt"))) {
+            outputStream.writeObject(puntuaciones);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
