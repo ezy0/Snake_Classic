@@ -3,6 +3,8 @@ package com.ldm.ejemplojuegopiratas.juego;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.ldm.ejemplojuegopiratas.Juego;
@@ -29,7 +31,6 @@ public class PantallaJuego extends Pantalla {
     public PantallaJuego(Juego juego) {
         super(juego);
         mundo = new Mundo();//este metodo la llamada hay que verlo mejor
-
     }
 
     @Override
@@ -167,11 +168,19 @@ public class PantallaJuego extends Pantalla {
         Snake snake = mundo.snake;
         Cuerpo head = snake.partes.get(0);
         Manzana manzana = mundo.manzana;
+        LinkedList<Obstaculo> obstaculos = mundo.obstaculos;
 
         Pixmap stainPixmap = Assets.manzana;
         int x = manzana.x * 32;
         int y = manzana.y * 32;
         g.drawPixmap(stainPixmap, x, y);
+
+        Pixmap pixMapObs = Assets.obstaculo;
+        for (Obstaculo obs : obstaculos) {
+            x = obs.x * 32;
+            y = obs.y * 32;
+            g.drawPixmap(pixMapObs, x, y);
+        }
 
         int len = snake.partes.size();
 

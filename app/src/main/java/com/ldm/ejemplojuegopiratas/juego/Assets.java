@@ -32,4 +32,6 @@ public class Assets {
     public static Pixmap puntuaciones;
     public static Pixmap flecha;
 
+    public static Pixmap obstaculo;
+
 }

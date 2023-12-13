@@ -31,6 +31,7 @@ public class LoadingScreen extends Pantalla{
         Assets.cuerpoAbajo = g.newPixmap("cuerpoAbajo.png", PixmapFormat.ARGB4444);
         Assets.cuerpoIzquierda = g.newPixmap("cuerpoIzquierda.png", PixmapFormat.ARGB4444);
         Assets.manzana = g.newPixmap("manzana.png", PixmapFormat.ARGB4444);
+        Assets.obstaculo = g.newPixmap("obstaculo.png", PixmapFormat.ARGB4444);
         Assets.pulsar = juego.getAudio().nuevoSonido("pulsar.ogg");
         Assets.comer = juego.getAudio().nuevoSonido("apple.ogg");
         Assets.derrota = juego.getAudio().nuevoSonido("derrota.ogg");
