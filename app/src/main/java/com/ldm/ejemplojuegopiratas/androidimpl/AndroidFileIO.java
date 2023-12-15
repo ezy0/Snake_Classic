@@ -6,19 +6,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Environment;
 import com.ldm.ejemplojuegopiratas.FileIO;
 
 public class AndroidFileIO implements FileIO {
     AssetManager assets;
-    String rutaAlmacenamientoExterno;
+    String rutaAlmacenamientoInterno;
 
-    public AndroidFileIO(AssetManager assets) {
+    public AndroidFileIO(Context context, AssetManager assets) {
         this.assets = assets;
-        this.rutaAlmacenamientoExterno = Environment
-                .getExternalStorageDirectory().getAbsolutePath()
-                + File.separator;
+        //this.rutaAlmacenamientoExterno = Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator;
+        this.rutaAlmacenamientoInterno = context.getFilesDir().getAbsolutePath() + File.separator;
     }
 
     @Override
@@ -28,12 +29,12 @@ public class AndroidFileIO implements FileIO {
 
     @Override
     public InputStream leerArchivo(String nombreArchivo) throws IOException {
-        return new FileInputStream(rutaAlmacenamientoExterno + nombreArchivo);
+        return new FileInputStream(rutaAlmacenamientoInterno + nombreArchivo);
     }
 
     @Override
     public OutputStream escribirArchivo(String nombreArchivo) throws IOException {
-        return new FileOutputStream(rutaAlmacenamientoExterno + nombreArchivo);
+        return new FileOutputStream(rutaAlmacenamientoInterno + nombreArchivo);
     }
 
 }

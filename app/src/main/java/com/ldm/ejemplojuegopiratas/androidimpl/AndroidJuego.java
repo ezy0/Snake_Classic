@@ -1,16 +1,23 @@
 package com.ldm.ejemplojuegopiratas.androidimpl;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.view.Window;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.ldm.ejemplojuegopiratas.Audio;
 import com.ldm.ejemplojuegopiratas.FileIO;
@@ -31,7 +38,9 @@ public abstract class AndroidJuego extends Activity implements Juego {
     Pantalla pantalla;
     WakeLock wakeLock;
 
-    Musica musica;
+    public static Musica musica;
+
+    private static final int PERMISO_ESCRITURA_EXTERNA = 1;
 
     @SuppressLint("InvalidWakeLockTag")
     @Override
@@ -53,7 +62,7 @@ public abstract class AndroidJuego extends Activity implements Juego {
 
         renderView = new AndroidFastRenderView(this, frameBuffer);
         graficos = new AndroidGraficos(getAssets(), frameBuffer);
-        fileIO = new AndroidFileIO(getAssets());
+        fileIO = new AndroidFileIO(this, getAssets());
         audio = new AndroidAudio(this);
         input = new AndroidInput(this, renderView, scaleX, scaleY);
         pantalla = getStartScreen();
@@ -119,4 +128,5 @@ public abstract class AndroidJuego extends Activity implements Juego {
     public Pantalla getCurrentScreen() {
         return pantalla;
     }
+
 }

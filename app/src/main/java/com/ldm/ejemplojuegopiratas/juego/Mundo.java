@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.ldm.ejemplojuegopiratas.androidimpl.AndroidFileIO;
+import com.ldm.ejemplojuegopiratas.androidimpl.AndroidJuego;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -132,7 +133,6 @@ public class Mundo {
                 obstaculoY = 25;
             if (obstaculoY < 2)
                 obstaculoY = 2;
-            Log.i("OBSTACULO", "OBSTACULO");
         }
         obstaculo = new Obstaculo(obstaculoX, obstaculoY);
         obstaculos.add(obstaculo);
@@ -143,7 +143,6 @@ public class Mundo {
             return;
 
         tiempoTick += deltaTime;
-
         while (tiempoTick > tick) {
             tiempoTick -= tick;
             snake.avance();
@@ -151,7 +150,6 @@ public class Mundo {
 
             if (snake.comprobarChoque()) {
                 finalJuego = true;
-                //savePoints(puntuacion);
                 return;
             }
 
@@ -177,16 +175,6 @@ public class Mundo {
                     tick -= TICK_DECREMENTO;
                 }
             }
-        }
-    }
-    public void savePoints(int p) {
-        ArrayList<String> puntuaciones = new ArrayList<>();
-        puntuaciones.add(String.valueOf(p));
-
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(fileIO.escribirArchivo("puntuaciones.txt"))) {
-            outputStream.writeObject(puntuaciones);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

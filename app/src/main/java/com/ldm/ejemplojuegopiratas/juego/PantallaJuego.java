@@ -2,6 +2,7 @@ package com.ldm.ejemplojuegopiratas.juego;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -13,6 +14,7 @@ import com.ldm.ejemplojuegopiratas.Input.TouchEvent;
 import com.ldm.ejemplojuegopiratas.Pixmap;
 import com.ldm.ejemplojuegopiratas.Pantalla;
 import com.ldm.ejemplojuegopiratas.androidimpl.AndroidGraficos;
+import com.ldm.ejemplojuegopiratas.androidimpl.AndroidJuego;
 
 public class PantallaJuego extends Pantalla {
     enum EstadoJuego {
@@ -37,6 +39,11 @@ public class PantallaJuego extends Pantalla {
     public void update(float deltaTime) {
         List<TouchEvent> touchEvents = juego.getInput().getTouchEvents();
         juego.getInput().getKeyEvents();
+
+        if (!Configuraciones.sonidoHabilitado)
+            AndroidJuego.musica.stop();
+        else
+            AndroidJuego.musica.play();
 
         if(estado == EstadoJuego.Preparado)
             updateReady(touchEvents);

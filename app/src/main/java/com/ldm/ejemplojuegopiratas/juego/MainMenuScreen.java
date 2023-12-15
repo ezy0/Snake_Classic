@@ -4,6 +4,7 @@ import com.ldm.ejemplojuegopiratas.Juego;
 import com.ldm.ejemplojuegopiratas.Graficos;
 import com.ldm.ejemplojuegopiratas.Input.TouchEvent;
 import com.ldm.ejemplojuegopiratas.Pantalla;
+import com.ldm.ejemplojuegopiratas.androidimpl.AndroidJuego;
 
 public class MainMenuScreen extends Pantalla {
     public MainMenuScreen(Juego juego) {
@@ -15,6 +16,11 @@ public class MainMenuScreen extends Pantalla {
         Graficos g = juego.getGraphics();
         List<TouchEvent> touchEvents = juego.getInput().getTouchEvents();
         juego.getInput().getKeyEvents();
+
+        if (!Configuraciones.sonidoHabilitado)
+            AndroidJuego.musica.stop();
+        else
+            AndroidJuego.musica.play();
 
         int len = touchEvents.size();
         for(int i = 0; i < len; i++) {
@@ -74,7 +80,7 @@ public class MainMenuScreen extends Pantalla {
 
     @Override
     public void pause() {
-        Configuraciones.save(juego.getFileIO());
+        //Configuraciones.save(juego.getFileIO());
     }
 
     @Override

@@ -22,7 +22,7 @@ public class PantallaAyuda2 extends Pantalla {
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if(event.type == TouchEvent.TOUCH_UP) {
-                if(event.x > 256 && event.y > 416 ) {
+                if(event.x > 300 && event.y > 700 ) {
                     juego.setScreen(new PantallaAyuda3(juego));
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
