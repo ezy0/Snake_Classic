@@ -74,16 +74,16 @@ public class Mundo {
         if (manzanaY < 2)
             manzanaY = 2;
         while (campos[manzanaX][manzanaY] || ocupadoObstaculo(manzanaX, manzanaY)) {
-            manzanaX += 1;
+            manzanaX = random.nextInt(MUNDO_ANCHO);
+            manzanaY = random.nextInt(MUNDO_ALTO);
             if (manzanaX > 12)
                 manzanaX = 12;
-            if (manzanaX <= 2)
-                manzanaX = 3;
-            if (manzanaY >= 24)
-                manzanaY = 24;
-            if (manzanaY <= 2)
-                manzanaY = 1;
-            Log.i("MANZANA", "MANZANA");
+            if (manzanaX < 1)
+                manzanaX = 1;
+            if (manzanaY > 25)
+                manzanaY = 25;
+            if (manzanaY < 2)
+                manzanaY = 2;
         }
         manzana = new Manzana(manzanaX, manzanaY);
         ocupadaX = manzanaX;
@@ -122,15 +122,16 @@ public class Mundo {
         if (obstaculoY < 2)
             obstaculoY = 2;
         while (campos[obstaculoX][obstaculoY] || (obstaculoX == ocupadaX && obstaculoY == ocupadaY)) {
-            obstaculoX += 1;
+            obstaculoX = random.nextInt(MUNDO_ANCHO);
+            obstaculoY = random.nextInt(MUNDO_ALTO);
             if (obstaculoX > 12)
                 obstaculoX = 12;
-            if (obstaculoX <= 2)
-                obstaculoX = 3;
-            if (obstaculoY >= 24)
-                obstaculoY = 24;
-            if (obstaculoY <= 2)
-                obstaculoY = 1;
+            if (obstaculoX < 1)
+                obstaculoX = 1;
+            if (obstaculoY > 25)
+                obstaculoY = 25;
+            if (obstaculoY < 2)
+                obstaculoY = 2;
             Log.i("OBSTACULO", "OBSTACULO");
         }
         obstaculo = new Obstaculo(obstaculoX, obstaculoY);
