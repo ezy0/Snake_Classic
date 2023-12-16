@@ -6,7 +6,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.ldm.ejemplojuegopiratas"
+        applicationId "com.ldm.eightbiter"
         minSdk 14
         targetSdk 32
         versionCode 1
@@ -25,7 +25,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    namespace 'com.ldm.ejemplojuegopiratas.juego'
+    namespace 'com.ldm.eightbiter.juego'
 }
 
 dependencies {
