@@ -34,20 +34,17 @@ public class Mundo {
     public int puntuacion = 0;
     boolean campos[][] = new boolean[MUNDO_ANCHO][MUNDO_ALTO];
     Random random = new Random();
-    float tiempoTick = 0;
-    static float tick = TICK_INICIAL;
+    float tiempoTick;
+    static float tick;
 
     int ocupadaX, ocupadaY;
 
-    public Mundo(AndroidFileIO fileIO) {
-        snake = new Snake();
-        colocarManzana();
-        this.fileIO=fileIO;//tendria que ser algo asi, pero  no esta saliendo bien
-    }
 
     public Mundo() {
         snake = new Snake();
         colocarManzana();
+        tiempoTick = 0;
+        tick = TICK_INICIAL;
     }
 
 

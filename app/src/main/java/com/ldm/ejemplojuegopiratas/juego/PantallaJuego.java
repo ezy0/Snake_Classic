@@ -45,6 +45,9 @@ public class PantallaJuego extends Pantalla {
         else
             AndroidJuego.musica.play();
 
+        if (!AndroidJuego.musica.isPlaying() && Configuraciones.sonidoHabilitado)
+            AndroidJuego.musica.play();
+
         if(estado == EstadoJuego.Preparado)
             updateReady(touchEvents);
         if(estado == EstadoJuego.Ejecutandose)
@@ -74,7 +77,7 @@ public class PantallaJuego extends Pantalla {
             }
 
             if(event.type == TouchEvent.TOUCH_DOWN) {
-                if (event.y >= 450 && event.y < 670) {
+                if (event.y >= 350 && event.y < 650) {
                     if (mundo.snake.direccion == Snake.ARRIBA || mundo.snake.direccion == Snake.ABAJO) {
                         if (event.x < 240) {
                             mundo.snake.izquierda();
@@ -84,7 +87,7 @@ public class PantallaJuego extends Pantalla {
                     } else if (mundo.snake.direccion == Snake.IZQUIERDA || mundo.snake.direccion == Snake.DERECHA) {
                         mundo.snake.arriba();
                     }
-                } else if (event.y >= 670){
+                } else if (event.y >= 650){
                     if (mundo.snake.direccion == Snake.IZQUIERDA || mundo.snake.direccion == Snake.DERECHA) {
                         mundo.snake.abajo();
                     } else if (mundo.snake.direccion == Snake.ARRIBA || mundo.snake.direccion == Snake.ABAJO) {

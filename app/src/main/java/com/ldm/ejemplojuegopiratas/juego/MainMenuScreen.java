@@ -22,6 +22,9 @@ public class MainMenuScreen extends Pantalla {
         else
             AndroidJuego.musica.play();
 
+        if (!AndroidJuego.musica.isPlaying() && Configuraciones.sonidoHabilitado)
+            AndroidJuego.musica.play();
+
         int len = touchEvents.size();
         for(int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
