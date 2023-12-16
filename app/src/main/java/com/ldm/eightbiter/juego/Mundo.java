@@ -128,7 +128,7 @@ public class Mundo {
         do {
             obstaculoX = random.nextInt(MUNDO_ANCHO - 2) + 1;
             obstaculoY = random.nextInt(MUNDO_ALTO - 3) + 2;
-        } while (campos[obstaculoX][obstaculoY] || (obstaculoX == ocupadaX && obstaculoY == ocupadaY));
+        } while (campos[obstaculoX][obstaculoY] || (obstaculoX == ocupadaX && obstaculoY == ocupadaY) || ocupadoObstaculo(obstaculoX, obstaculoY));
 
         obstaculo = new Obstaculo(obstaculoX, obstaculoY);
         obstaculos.add(obstaculo);
