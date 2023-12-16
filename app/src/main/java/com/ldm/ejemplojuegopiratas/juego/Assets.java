@@ -31,7 +31,7 @@ public class Assets {
     public static Pixmap pausa;
     public static Pixmap puntuaciones;
     public static Pixmap flecha;
-
+    public static Pixmap flechaAyuda;
     public static Pixmap obstaculo;
 
 }
