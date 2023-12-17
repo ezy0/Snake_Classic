@@ -26,7 +26,7 @@ public class PantallaMaximasPuntuaciones extends Pantalla {
         for (int i = 0; i < len; i++) {
             TouchEvent event = touchEvents.get(i);
             if (event.type == TouchEvent.TOUCH_UP) {
-                if (event.x < 100 && event.y > 416) {
+                if (event.x <= 100 && event.y >=747 && event.x>=20 && event.y<=827) {
                     if(Configuraciones.sonidoHabilitado)
                         Assets.pulsar.play(1);
                     juego.setScreen(new MainMenuScreen(juego));

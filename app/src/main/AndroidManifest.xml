@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.8BITER">
 
-        <activity android:name=".Snake_8Biter"
+        <activity android:name="com.ldm.eightbiter.juego.Snake_8Biter"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
