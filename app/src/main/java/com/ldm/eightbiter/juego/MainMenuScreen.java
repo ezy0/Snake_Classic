@@ -66,7 +66,7 @@ public class MainMenuScreen extends Pantalla {
         Graficos g = juego.getGraphics();
 
         g.drawPixmap(Assets.fondo, 0, 0);
-        g.drawPixmap(Assets.logo, (g.getWidth()/2)-87, 100);
+        g.drawPixmap(Assets.logo, (g.getWidth()/2)-100, 100);
         g.drawPixmap(Assets.menuprincipal, 64, 350);
         if(Configuraciones.sonidoHabilitado)
             g.drawPixmap(Assets.sonido, 20,747,0,0,80,80);

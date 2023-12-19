@@ -159,7 +159,7 @@ public class Mundo {
             if (head.x == manzana.x && head.y == manzana.y) {
                 puntuacion += INCREMENTO_PUNTUACION;
                 snake.crecimiento();
-                if (snake.partes.size() == MUNDO_ANCHO * MUNDO_ALTO) {
+                if (snake.partes.size() == (MUNDO_ANCHO * MUNDO_ALTO)/2) {
                     finalJuego = true;
                     return;
                 } else {
