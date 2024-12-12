@@ -28,3 +28,7 @@
 
 Es necesario compilar el código en un dispositivo android o máquina virtual. Se recomienda utilizar Android Studio
 
+## Autores
+- https://github.com/ezy0
+- https://github.com/DoubleJJN
+
